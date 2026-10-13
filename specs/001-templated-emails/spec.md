@@ -1,7 +1,7 @@
 # Spec: emails enviados com template
 
 **Status:** em revisão
-**Issue:** — (Issues desligadas no fork; `tasks.md` é a fonte de verdade)
+**Issue:** #3
 
 ## Resumo
 

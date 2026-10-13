@@ -46,4 +46,4 @@ existe mais. Fixtures capturadas de um LocalStack 4.7 real.
 - (preencher após o merge) docs: specify templated email support
 - (preencher após o merge) feat: render emails sent with SendTemplatedEmail
 
-**Issues:** —
+**Issues:** #3 aberta (épico da feature 001)
