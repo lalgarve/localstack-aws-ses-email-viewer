@@ -77,6 +77,13 @@ With this setup:
 - Access Mailpit's modern UI at http://localhost:8025
 - All emails are automatically available in both interfaces
 
+## Development
+
+New work follows Spec-Driven Development: a spec and a plan are written under `specs/` before the code. The conventions (commit format, branches, tests, coverage floor) are in [`memory/constitution.md`](memory/constitution.md), and the templates for a new feature are in [`templates/`](templates/). These process documents are written in Portuguese.
+
+- Enable the commit message hook once per clone: `git config core.hooksPath .githooks`
+- Run the tests: `npm test` (fails below 80% line coverage)
+
 ## Requirements
 
 - [LocalStack](https://github.com/localstack/localstack): Ensure LocalStack, especially the SES service, is set up and running.

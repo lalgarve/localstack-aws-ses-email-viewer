@@ -1,0 +1,16 @@
+#!/bin/sh
+# Valida que a primeira linha da mensagem de commit segue o formato
+# "<tipo>: <resumo>" descrito em memory/constitution.md.
+# Ativar com: git config core.hooksPath .githooks
+
+commit_msg_file="$1"
+first_line=$(head -n 1 "$commit_msg_file")
+
+pattern='^(feat|fix|refactor|test|docs|chore|decision): .+'
+
+if ! echo "$first_line" | grep -qE "$pattern"; then
+  echo "Commit rejeitado: a primeira linha deve seguir '<tipo>: <resumo>'." >&2
+  echo "Tipos válidos: feat, fix, refactor, test, docs, chore, decision." >&2
+  echo "Ver memory/constitution.md." >&2
+  exit 1
+fi
