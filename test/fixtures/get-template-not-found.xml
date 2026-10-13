@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ErrorResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/"><Error><Code>TemplateDoesNotExist</Code><Message>Invalid Template Name.</Message><Type>Sender</Type></Error><RequestId>74aefcf5-280b-4c78-9cf5-fce9c0d7019e</RequestId></ErrorResponse>

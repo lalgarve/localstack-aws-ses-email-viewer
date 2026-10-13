@@ -2,12 +2,14 @@ import express from "express";
 import fetch from "node-fetch";
 import mailparser from "mailparser";
 import { createFromEnv } from "./lib/smtp-forwarder.js";
+import { fetchTemplate, renderTemplatedEmail } from "./lib/ses-templates.js";
 
 const simpleParser = mailparser.simpleParser;
 
 const app = express();
 
-const apiUrl = `${process.env.LOCALSTACK_HOST || 'http://localhost:4566'}/_aws/ses`;
+const localstackHost = process.env.LOCALSTACK_HOST || 'http://localhost:4566';
+const apiUrl = `${localstackHost}/_aws/ses`;
 
 // Initialize SMTP forwarder from environment variables
 const smtpForwarder = createFromEnv();
@@ -18,9 +20,10 @@ app.get("/", async (_req, res, next) => {
   try {
     const messages = await fetchMessages();
     const extraColumns = parseExtraColumns() || [];
+    const templates = new Map();
     const messagesForTemplate = await Promise.all(
       messages.map(async (message, index) => {
-        let email = await createEmail(message, index);
+        let email = await createEmail(message, templates);
         const logos = extraColumns.map(
           (column) =>
             email.attachments.find(
@@ -68,6 +71,7 @@ app.get("/emails/:id", async (req, res, next) => {
       htmlContent: email.html,
       attachments,
       messageId: req.params.id,
+      template: email.template,
     });
   } catch (err) {
     next(err);
@@ -128,7 +132,21 @@ async function fetchMessages() {
   return messages;
 }
 
-async function createEmail(message) {
+// Templates are cached per request so a list of emails sharing a template
+// fetches it only once, while edits to the template show up on the next visit.
+async function getTemplate(message, templates) {
+  const key = `${message.Region}/${message.Template}`;
+  if (!templates.has(key)) {
+    templates.set(key, fetchTemplate(localstackHost, message.Region, message.Template));
+  }
+  return templates.get(key);
+}
+
+async function createEmail(message, templates = new Map()) {
+  if (message.Template) {
+    return renderTemplatedEmail(message, await getTemplate(message, templates));
+  }
+
   if (message.RawData) {
     const parsed = await simpleParser(message.RawData);
     return {
