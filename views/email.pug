@@ -18,6 +18,11 @@ html
       font-weight: bold;
     }
 
+    .template-data {
+      margin: 4px 0;
+      white-space: pre-wrap;
+    }
+
     .attachment-link {
       color: #fff;
       font-weight: bold;
@@ -28,6 +33,11 @@ html
       span.subject-value #{subject} <br>
       ="To: "
       span.subject-value #{to} <br>
+      if template
+        ="Template: "
+        span.subject-value #{template.name} <br>
+        ="Template data:"
+        pre.template-data= template.data
       if attachments.length > 0
         ="Attachments: "
         each att in attachments

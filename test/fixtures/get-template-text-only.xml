@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<GetTemplateResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/"><GetTemplateResult><Template><TemplateName>text-only</TemplateName><SubjectPart>Plain {{x}}</SubjectPart><TextPart>Only text {{x}}</TextPart><HtmlPart /></Template></GetTemplateResult><ResponseMetadata><RequestId>f61ddfdf-274a-446f-9772-897971ede3fd</RequestId></ResponseMetadata></GetTemplateResponse>

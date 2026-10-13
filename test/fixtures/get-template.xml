@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<GetTemplateResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/"><GetTemplateResult><Template><TemplateName>jogo-acoes__login-link</TemplateName><SubjectPart>Hello {{name}}, your login link</SubjectPart><TextPart>Hi {{name}}, log in at {{link}}</TextPart><HtmlPart>&lt;p&gt;Hi {{name}},&lt;/p&gt;&lt;p&gt;&lt;a href="{{link}}"&gt;Log in&lt;/a&gt;&lt;/p&gt;</HtmlPart></Template></GetTemplateResult><ResponseMetadata><RequestId>a0bb881a-bddd-4a43-aa40-3b04caa6fdef</RequestId></ResponseMetadata></GetTemplateResponse>

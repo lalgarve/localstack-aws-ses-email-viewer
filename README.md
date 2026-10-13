@@ -9,7 +9,8 @@ This tool allows you to easily list, view, and download emails.
 
 - **List Emails:** Quickly browse through all emails sent via LocalStack SES.
 - **View Emails:** Preview the content and details of individual emails with the rendered HTML version displayed in your browser.
-- **Download Emails:** Save email contents in EML format for offline access or further analysis.
+- **Templated Emails:** Emails sent with `SendTemplatedEmail` are rendered with their template data; the template is fetched from LocalStack in the message's region.
+- **Download Emails:** Save email contents in EML format for offline access or further analysis (raw emails only).
 - **SMTP Forwarding:** Optionally forward emails to an external SMTP server (e.g., Mailpit) for advanced testing and inspection.
 
 ## Usage

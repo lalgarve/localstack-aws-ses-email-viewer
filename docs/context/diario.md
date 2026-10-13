@@ -35,3 +35,15 @@ Decisões em aberto registradas na adoção:
 - (preencher com o hash após o merge) docs: adopt spec-driven development
 
 **Issues:** —
+
+### 2026-10-13 (feature 001)
+
+**Resumo:** Spec, plan e implementação de `specs/001-templated-emails/`: emails enviados com
+template passam a ser renderizados com os dados do envio, com fallback quando o template não
+existe mais. Fixtures capturadas de um LocalStack 4.7 real.
+
+**Commits:**
+- (preencher após o merge) docs: specify templated email support
+- (preencher após o merge) feat: render emails sent with SendTemplatedEmail
+
+**Issues:** #3 aberta (épico da feature 001)
