@@ -10,3 +10,6 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 9
+    commit-message:
+      # Semantic commit type required by memory/constitution.md
+      prefix: "chore"

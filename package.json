@@ -17,5 +17,17 @@
   },
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text",
+      "text-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 80
+      }
+    }
   }
 }
